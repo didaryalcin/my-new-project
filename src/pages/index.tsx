@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import App from '../App';  // App bileşeninin doğru yolunu belirtin
+import reportWebVitals from '../reportWebVitals';  // reportWebVitals dosyasının doğru yolunu belirtin
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
