@@ -1,5 +1,5 @@
 import React from 'react';
-import './Table.css';
+import './Table.css'; // CSS dosyasını import edin
 
 interface TableDataItem {
     type: string;
@@ -17,7 +17,6 @@ interface TableProps {
 const Table: React.FC<TableProps> = ({ data }) => {
     return (
         <div className="transactions-history">
-            <h2>Transactions History</h2>
             <table>
                 <thead>
                     <tr>
@@ -41,12 +40,7 @@ const Table: React.FC<TableProps> = ({ data }) => {
                             <td>{item.date}</td>
                             <td>
                                 <div className="actions-dropdown">
-                                    <button>Actions</button>
-                                    <div className="dropdown-content">
-                                        <a href="#">Processing</a>
-                                        <a href="#">In Progress</a>
-                                        <a href="#">Completed</a>
-                                    </div>
+                                    <button onClick={() => console.log(item.numberOfIP)}>Action</button>
                                 </div>
                             </td>
                         </tr>
@@ -58,6 +52,8 @@ const Table: React.FC<TableProps> = ({ data }) => {
 };
 
 export default Table;
+
+
 
 
 
