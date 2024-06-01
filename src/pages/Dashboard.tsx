@@ -5,7 +5,6 @@ import Table from '../component/Table';
 import Chart from '../component/Chart';
 import { getTableData, getInfo } from '../services/api';
 
-// Tip tanımlarını burada yapabilirsiniz veya uygun bir dosyadan import edebilirsiniz
 interface TableDataItem {
     type: string;
     location: string;
@@ -25,7 +24,7 @@ interface InfoData {
 const Dashboard: React.FC = () => {
     const [tableData, setTableData] = useState<TableDataItem[]>([]);
     const [info, setInfo] = useState<InfoData | null>(null);
-    const [error, setError] = useState<string | null>(null); // Hata mesajı için state
+    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -38,7 +37,7 @@ const Dashboard: React.FC = () => {
                     setInfo(info);
                 } catch (error) {
                     setError('Failed to fetch data. Please try again.');
-                    console.error(error);
+                    console.error("API call error:", error); // Debugging
                 }
             } else {
                 setError('No token found. Please login again.');
@@ -52,7 +51,7 @@ const Dashboard: React.FC = () => {
             <Sidebar />
             <div className="dashboard-content">
                 <Header info={info} />
-                {error && <div className="error">{error}</div>} {/* Hata mesajını göster */}
+                {error && <div className="error">{error}</div>}
                 <div className="info-cards">
                     <div className="info-card">Subscription expires on: {info?.subscriptionExpires}</div>
                     <div className="info-card">Last charge: {info?.lastCharge}</div>
@@ -67,3 +66,4 @@ const Dashboard: React.FC = () => {
 };
 
 export default Dashboard;
+
