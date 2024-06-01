@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { login } from '../services/api';
+import './Login.css'; // Login formu için CSS dosyasını import edin
 
 const Login: React.FC = () => {
     const [username, setUsername] = useState('');
