@@ -4,7 +4,7 @@ import Sidebar from '../component/Sidebar';
 import Table from '../component/Table';
 import Chart from '../component/Chart';
 import { getTableData, getInfo } from '../services/api';
-import './Dashboard.css'; // CSS dosyasını import edin
+import './Dashboard.css';
 
 interface TableDataItem {
     type: string;
@@ -51,6 +51,9 @@ const Dashboard: React.FC = () => {
         <div className="dashboard">
             <Sidebar />
             <div className="dashboard-content">
+                <div className="dashboard-header">
+                    <h1>Proxies & Scraping Infrastructure</h1>
+                </div>
                 <Header info={info} />
                 {error && <div className="error">{error}</div>}
                 <div className="info-cards">

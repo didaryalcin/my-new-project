@@ -1,5 +1,5 @@
 import React from 'react';
-import './Table.css'; // CSS dosyasını import edin
+import './Table.css';
 
 interface TableDataItem {
     type: string;
