@@ -5,10 +5,11 @@ import './Sidebar.css';
 const Sidebar: React.FC = () => {
     return (
         <div className="sidebar">
+           
             <ul>
                 <li>
                     <Link to="/dashboard">
-                        <i className="icon-dashboard"></i>
+                        <i className="icon-home"></i>
                         <span>Dashboard</span>
                     </Link>
                 </li>
@@ -19,4 +20,3 @@ const Sidebar: React.FC = () => {
 };
 
 export default Sidebar;
-

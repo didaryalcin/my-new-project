@@ -5,6 +5,7 @@ import Table from '../component/Table';
 import Chart from '../component/Chart';
 import { getTableData, getInfo } from '../services/api';
 
+// Tip tanımlarını burada yapabilirsiniz veya uygun bir dosyadan import edebilirsiniz
 interface TableDataItem {
     type: string;
     location: string;
@@ -43,6 +44,12 @@ const Dashboard: React.FC = () => {
             <Sidebar />
             <div className="dashboard-content">
                 <Header info={info} />
+                <div className="info-cards">
+                    <div className="info-card">Subscription expires on: {info?.subscriptionExpires}</div>
+                    <div className="info-card">Last charge: {info?.lastCharge}</div>
+                    <div className="info-card">Total Usage Data: {info?.totalUsageData}</div>
+                    <div className="info-card">Daily Usage Data: {info?.dailyUsageData}</div>
+                </div>
                 <Chart data={tableData} />
                 <Table data={tableData} />
             </div>
@@ -51,4 +58,3 @@ const Dashboard: React.FC = () => {
 };
 
 export default Dashboard;
-

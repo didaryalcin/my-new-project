@@ -1,16 +1,30 @@
 import React from 'react';
-import './Header.css';
-import someIcon from '../assets/some-icon.png'; // İkonu assets klasöründen import edin
 
-const Header: React.FC = () => {
+// InfoData tipini import edin veya burada tanımlayın
+interface InfoData {
+    subscriptionExpires: string;
+    lastCharge: string;
+    totalUsageData: string;
+    dailyUsageData: string;
+}
+
+interface HeaderProps {
+    info: InfoData | null;
+}
+
+const Header: React.FC<HeaderProps> = ({ info }) => {
     return (
-        <header className="header">
-            <img src={someIcon} alt="Some Icon" className="header-icon" />
-            <h1>Proxies & Scraping Infrastructure</h1>
-        </header>
+        <div className="header">
+            {info && (
+                <>
+                    <div>Subscription expires on: {info.subscriptionExpires}</div>
+                    <div>Last charge: {info.lastCharge}</div>
+                    <div>Total usage data: {info.totalUsageData}</div>
+                    <div>Daily usage data: {info.dailyUsageData}</div>
+                </>
+            )}
+        </div>
     );
 };
 
 export default Header;
-
-
