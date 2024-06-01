@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from '../component/Header';
 import Sidebar from '../component/Sidebar';
 import Table from '../component/Table';
@@ -26,26 +27,29 @@ const Dashboard: React.FC = () => {
     const [tableData, setTableData] = useState<TableDataItem[]>([]);
     const [info, setInfo] = useState<InfoData | null>(null);
     const [error, setError] = useState<string | null>(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchData = async () => {
             const token = localStorage.getItem('token');
-            if (token) {
-                try {
-                    const tableData = await getTableData(token);
-                    const info = await getInfo(token);
-                    setTableData(tableData);
-                    setInfo(info);
-                } catch (error) {
-                    setError('Failed to fetch data. Please try again.');
-                    console.error("API call error:", error); // Debugging
-                }
-            } else {
+            if (!token) {
                 setError('No token found. Please login again.');
+                navigate('/login'); // Kullanıcıyı login sayfasına yönlendirin
+                return;
+            }
+
+            try {
+                const tableData = await getTableData(token);
+                const info = await getInfo(token);
+                setTableData(tableData);
+                setInfo(info);
+            } catch (error) {
+                setError('Failed to fetch data. Please try again.');
+                console.error("API call error:", error); // Debugging
             }
         };
         fetchData();
-    }, []);
+    }, [navigate]);
 
     return (
         <div className="dashboard">
@@ -70,4 +74,3 @@ const Dashboard: React.FC = () => {
 };
 
 export default Dashboard;
-
