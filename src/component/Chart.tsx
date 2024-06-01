@@ -24,3 +24,4 @@ const Chart: React.FC<ChartProps> = ({ data }) => {
 };
 
 export default Chart;
+
