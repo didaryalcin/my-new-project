@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Table.css';
 
 interface TableDataItem {
@@ -15,6 +15,18 @@ interface TableProps {
 }
 
 const Table: React.FC<TableProps> = ({ data }) => {
+    // Dropdown state management
+    const [dropdownOpen, setDropdownOpen] = useState<number | null>(null);
+
+    const toggleDropdown = (index: number) => {
+        setDropdownOpen(dropdownOpen === index ? null : index);
+    };
+
+    const handleActionClick = (numberOfIP: number) => {
+        console.log(numberOfIP);
+        setDropdownOpen(null);
+    };
+
     return (
         <div className="transactions-history">
             <table>
@@ -40,7 +52,14 @@ const Table: React.FC<TableProps> = ({ data }) => {
                             <td>{item.date}</td>
                             <td>
                                 <div className="actions-dropdown">
-                                    <button onClick={() => console.log(item.numberOfIP)}>Action</button>
+                                    <button onClick={() => toggleDropdown(index)}>Actions</button>
+                                    {dropdownOpen === index && (
+                                        <div className="dropdown-menu">
+                                            <button onClick={() => handleActionClick(item.numberOfIP)}>Processing</button>
+                                            <button onClick={() => handleActionClick(item.numberOfIP)}>In Progress</button>
+                                            <button onClick={() => handleActionClick(item.numberOfIP)}>Completed</button>
+                                        </div>
+                                    )}
                                 </div>
                             </td>
                         </tr>

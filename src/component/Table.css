@@ -1,5 +1,3 @@
-/* src/component/Table.css */
-
 .transactions-history {
     margin-top: 20px;
 }
@@ -23,13 +21,42 @@
     background-color: #f4f4f4;
 }
 
-.transactions-history .actions-dropdown button {
+.actions-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.actions-dropdown button {
     background: none;
     border: none;
     color: #007bff;
     cursor: pointer;
 }
 
-.transactions-history .actions-dropdown button:hover {
+.actions-dropdown button:hover {
     text-decoration: underline;
 }
+
+.dropdown-menu {
+    position: absolute;
+    background: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    min-width: 150px;
+    right: 0;
+}
+
+.dropdown-menu button {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 10px;
+    text-align: left;
+    cursor: pointer;
+}
+
+.dropdown-menu button:hover {
+    background-color: #f4f4f4;
+}
+
