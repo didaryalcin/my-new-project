@@ -32,9 +32,14 @@ const getTableData = async (token: string): Promise<TableDataItem[]> => {
         const response = await axios.get(`${API_URL}/get-table`, {
             headers: { Authorization: `Bearer ${token}` }
         });
+        console.log("getTableData response:", response.data); // Debugging
         return response.data;
-    } catch (error) {
-        console.error("getTableData error:", error);
+    } catch (error: any) {
+        if (axios.isAxiosError(error)) {
+            console.error("getTableData error:", error.response?.data || error.message);
+        } else {
+            console.error("Unexpected error:", error);
+        }
         throw error;
     }
 };
@@ -44,15 +49,16 @@ const getInfo = async (token: string): Promise<InfoData> => {
         const response = await axios.get(`${API_URL}/get-info`, {
             headers: { Authorization: `Bearer ${token}` }
         });
+        console.log("getInfo response:", response.data); // Debugging
         return response.data;
-    } catch (error) {
-        console.error("getInfo error:", error);
+    } catch (error: any) {
+        if (axios.isAxiosError(error)) {
+            console.error("getInfo error:", error.response?.data || error.message);
+        } else {
+            console.error("Unexpected error:", error);
+        }
         throw error;
     }
 };
 
 export { login, getTableData, getInfo };
-
-
-
-

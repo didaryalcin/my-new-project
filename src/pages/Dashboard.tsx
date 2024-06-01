@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import Header from '../component/Header';
 import Sidebar from '../component/Sidebar';
 import Table from '../component/Table';
@@ -33,6 +34,7 @@ const Dashboard: React.FC = () => {
     useEffect(() => {
         const fetchData = async () => {
             const token = localStorage.getItem('token');
+            console.log('Stored token:', token); // Token'ı loglayalım
             if (!token) {
                 setError('No token found. Please login again.');
                 navigate('/login'); // Kullanıcıyı login sayfasına yönlendirin
@@ -41,11 +43,14 @@ const Dashboard: React.FC = () => {
 
             try {
                 const tableData = await getTableData(token);
+                console.log("Fetched table data:", tableData); // Fetch edilen tablo verilerini loglayalım
                 const info = await getInfo(token);
+                console.log("Fetched info data:", info); // Fetch edilen info verilerini loglayalım
                 setTableData(tableData);
                 setInfo(info);
-            } catch (error) {
-                setError('Failed to fetch data. Please try again.');
+            } catch (error: any) {
+                const errorMessage = axios.isAxiosError(error) && error.response?.data.message ? error.response.data.message : error.message;
+                setError(`Failed to fetch data. ${errorMessage}`);
                 console.error("API call error:", error); // Debugging
             }
         };
@@ -70,4 +75,3 @@ const Dashboard: React.FC = () => {
 };
 
 export default Dashboard;
-

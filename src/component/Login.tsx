@@ -6,42 +6,29 @@ import './Login.css'; // Login formu için CSS dosyasını import edin
 const Login: React.FC = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState<string | null>(null); // Hata mesajı durumu ekleyin
     const navigate = useNavigate();
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
             const data = await login(username, password);
+            console.log("Login response:", data); // Login yanıtını loglayalım
             localStorage.setItem('token', data.token);
             navigate('/dashboard');
         } catch (error) {
             console.error('Login failed', error);
-            setError('Login failed. Please check your username and password.');
         }
     };
 
     return (
         <div className="login">
             <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    placeholder="Username"
-                />
-                <input
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    placeholder="Password"
-                />
+                <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Username" />
+                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
                 <button type="submit">Login</button>
-                {error && <div className="error">{error}</div>} {/* Hata mesajını gösterin */}
             </form>
         </div>
     );
 };
 
 export default Login;
-
