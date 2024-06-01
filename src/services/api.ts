@@ -42,3 +42,4 @@ const getInfo = async (token: string): Promise<InfoData> => {
 };
 
 export { login, getTableData, getInfo };
+

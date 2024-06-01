@@ -1,4 +1,6 @@
 import React from 'react';
+import r4 from '../assets/r4.png'; // Görseli import edin
+import './Chart.css';
 
 interface TableDataItem {
     type: string;
@@ -14,12 +16,9 @@ interface ChartProps {
 }
 
 const Chart: React.FC<ChartProps> = ({ data }) => {
-    // Basit bir dummy chart
     return (
         <div className="chart">
-            {/* Dummy chart content */}
-            <h2>Chart</h2>
-            <p>Here you can render a chart using a library like Chart.js or Recharts.</p>
+            <img src={r4} alt="Chart" className="chart-image" />
         </div>
     );
 };
