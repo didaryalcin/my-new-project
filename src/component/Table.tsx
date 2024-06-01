@@ -1,4 +1,5 @@
 import React from 'react';
+import './Table.css';
 
 interface TableDataItem {
     type: string;
@@ -16,6 +17,7 @@ interface TableProps {
 const Table: React.FC<TableProps> = ({ data }) => {
     return (
         <div className="transactions-history">
+            <h2>Transactions History</h2>
             <table>
                 <thead>
                     <tr>
@@ -39,7 +41,12 @@ const Table: React.FC<TableProps> = ({ data }) => {
                             <td>{item.date}</td>
                             <td>
                                 <div className="actions-dropdown">
-                                    <button onClick={() => console.log(item.numberOfIP)}>Action</button>
+                                    <button>Actions</button>
+                                    <div className="dropdown-content">
+                                        <a href="#">Processing</a>
+                                        <a href="#">In Progress</a>
+                                        <a href="#">Completed</a>
+                                    </div>
                                 </div>
                             </td>
                         </tr>
@@ -51,5 +58,6 @@ const Table: React.FC<TableProps> = ({ data }) => {
 };
 
 export default Table;
+
 
 

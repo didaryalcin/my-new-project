@@ -7,6 +7,8 @@
     flex: 1;
     padding: 20px;
     background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
 }
 
 .info-cards {
@@ -27,4 +29,8 @@
 .error {
     color: red;
     margin-bottom: 20px;
+}
+
+.transactions-history {
+    margin-top: 20px;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import r4 from '../assets/r4.png'; // Görseli import edin
+import r2 from '../assets/r2.png'; // r2 görselini import edin
 import './Chart.css';
 
 interface TableDataItem {
@@ -18,7 +18,7 @@ interface ChartProps {
 const Chart: React.FC<ChartProps> = ({ data }) => {
     return (
         <div className="chart">
-            <img src={r4} alt="Chart" className="chart-image" />
+            <img src={r2} alt="Chart" className="chart-image" />
         </div>
     );
 };
