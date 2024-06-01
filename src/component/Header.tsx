@@ -1,5 +1,5 @@
 import React from 'react';
-import r3 from '../assets/r3.png'; // Görselleri import edin
+import r3 from '../assets/r3.png'; // Görseli import edin
 import './Header.css';
 
 interface InfoData {
