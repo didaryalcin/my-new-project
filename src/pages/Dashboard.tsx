@@ -4,6 +4,7 @@ import Header from '../component/Header';
 import Sidebar from '../component/Sidebar';
 import Table from '../component/Table';
 import Chart from '../component/Chart';
+import InfoCards from '../component/InfoCards'; // InfoCards componentini import edin
 import { getTableData, getInfo } from '../services/api';
 import './Dashboard.css';
 
@@ -60,12 +61,7 @@ const Dashboard: React.FC = () => {
                 </div>
                 <Header info={info} />
                 {error && <div className="error">{error}</div>}
-                <div className="info-cards">
-                    <div className="info-card">Subscription expires on: {info?.subscriptionExpires}</div>
-                    <div className="info-card">Last charge: {info?.lastCharge}</div>
-                    <div className="info-card">Total Usage Data: {info?.totalUsageData}</div>
-                    <div className="info-card">Daily Usage Data: {info?.dailyUsageData}</div>
-                </div>
+                <InfoCards info={info} /> {/* InfoCards componentini burada kullanın */}
                 <Chart data={tableData} />
                 <Table data={tableData} />
             </div>
@@ -74,3 +70,4 @@ const Dashboard: React.FC = () => {
 };
 
 export default Dashboard;
+
