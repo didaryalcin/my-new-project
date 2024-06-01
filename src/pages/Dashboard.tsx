@@ -25,15 +25,23 @@ interface InfoData {
 const Dashboard: React.FC = () => {
     const [tableData, setTableData] = useState<TableDataItem[]>([]);
     const [info, setInfo] = useState<InfoData | null>(null);
+    const [error, setError] = useState<string | null>(null); // Hata mesajı için state
 
     useEffect(() => {
         const fetchData = async () => {
             const token = localStorage.getItem('token');
             if (token) {
-                const tableData = await getTableData(token);
-                const info = await getInfo(token);
-                setTableData(tableData);
-                setInfo(info);
+                try {
+                    const tableData = await getTableData(token);
+                    const info = await getInfo(token);
+                    setTableData(tableData);
+                    setInfo(info);
+                } catch (error) {
+                    setError('Failed to fetch data. Please try again.');
+                    console.error(error);
+                }
+            } else {
+                setError('No token found. Please login again.');
             }
         };
         fetchData();
@@ -44,6 +52,7 @@ const Dashboard: React.FC = () => {
             <Sidebar />
             <div className="dashboard-content">
                 <Header info={info} />
+                {error && <div className="error">{error}</div>} {/* Hata mesajını göster */}
                 <div className="info-cards">
                     <div className="info-card">Subscription expires on: {info?.subscriptionExpires}</div>
                     <div className="info-card">Last charge: {info?.lastCharge}</div>
