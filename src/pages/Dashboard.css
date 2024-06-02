@@ -48,6 +48,10 @@
     text-align: left; /* Sol hizalama */
 }
 
+.nav-tabs button:hover {
+    color: #0C6DFC; /* Hover durumunda mavi renk */
+}
+
 .nav-tabs .active {
     border-bottom: 2px solid #0C6DFC; /* Çizginin rengini değiştir */
     color: #0C6DFC; /* Aktif olan sekmenin rengini değiştir */

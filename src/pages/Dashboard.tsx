@@ -67,17 +67,14 @@ const Dashboard: React.FC = () => {
                     <h1>Proxies & Scraping Infrastructure</h1>
                 </div>
                 <div className="nav-tabs">
-                    <button className="active">My Proxies</button>
-                    <button>Dashboard</button>
+                    <button>My Proxies</button>
+                    <button className="active">Dashboard</button>
                 </div>
                 <Header info={info} />
                 {error && <div className="error">{error}</div>}
                 <InfoCards info={info} />
                 <Chart data={tableData} />
-                <div className="transactions-history">
-                    <h2>Transactions History</h2>
-                    <Table data={tableData} />
-                </div>
+                <Table data={tableData} />
             </div>
         </div>
     );
