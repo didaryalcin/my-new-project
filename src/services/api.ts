@@ -3,7 +3,7 @@ import axios from 'axios';
 const API_URL = 'https://recruitment-api.vercel.app';
 
 interface LoginResponse {
-    token: string;
+    token: string; 
 }
 
 interface TableDataItem {
@@ -24,8 +24,8 @@ interface InfoData {
 
 const login = async (username: string, password: string): Promise<LoginResponse> => {
     const response = await axios.post(`${API_URL}/login`, { username, password });
-    console.log('API login response:', response.data); // API yanıtını log
-    return response.data;
+    console.log('API login response:', response.data); 
+    return { token: response.data.jwt }; 
 };
 
 const getTableData = async (token: string): Promise<TableDataItem[]> => {
@@ -33,10 +33,10 @@ const getTableData = async (token: string): Promise<TableDataItem[]> => {
         const response = await axios.get(`${API_URL}/get-table`, {
             headers: { Authorization: `Bearer ${token}` }
         });
-        console.log("Table data response:", response.data); // Debugging
+        console.log("Table data response:", response.data); 
         return response.data;
     } catch (error: any) {
-        console.error("getTableData error:", error.response ? error.response.data : error.message); // Error handling
+        console.error("getTableData error:", error.response ? error.response.data : error.message); 
         throw error;
     }
 };
@@ -46,10 +46,10 @@ const getInfo = async (token: string): Promise<InfoData> => {
         const response = await axios.get(`${API_URL}/get-info`, {
             headers: { Authorization: `Bearer ${token}` }
         });
-        console.log("Info data response:", response.data); // Debugging
+        console.log("Info data response:", response.data); 
         return response.data;
     } catch (error: any) {
-        console.error("getInfo error:", error.response ? error.response.data : error.message); // Error handling
+        console.error("getInfo error:", error.response ? error.response.data : error.message); 
         throw error;
     }
 };

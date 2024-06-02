@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { login } from '../services/api';
-import './Login.css'; 
+import './Login.css';
 
 const Login: React.FC = () => {
     const [username, setUsername] = useState('');
@@ -33,5 +33,4 @@ const Login: React.FC = () => {
 };
 
 export default Login;
-
 

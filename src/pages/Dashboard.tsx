@@ -39,6 +39,19 @@ const Dashboard: React.FC = () => {
                 navigate('/login');
                 return;
             }
+
+            try {
+                const tableData = await getTableData(token);
+                console.log("Fetched table data:", tableData);
+                const info = await getInfo(token);
+                console.log("Fetched info data:", info);
+                setTableData(tableData);
+                setInfo(info);
+            } catch (error: any) {
+                const errorMessage = error.response ? error.response.data.message : error.message;
+                setError(`Failed to fetch data. ${errorMessage}`);
+                console.error("API call error:", error);
+            }
         };
         fetchData();
     }, [navigate]);
@@ -68,7 +81,6 @@ const Dashboard: React.FC = () => {
 };
 
 export default Dashboard;
-
 
 
 
