@@ -24,21 +24,34 @@ interface InfoData {
 
 const login = async (username: string, password: string): Promise<LoginResponse> => {
     const response = await axios.post(`${API_URL}/login`, { username, password });
+    console.log('API login response:', response.data); // API yanıtını loglayalım
     return response.data;
 };
 
 const getTableData = async (token: string): Promise<TableDataItem[]> => {
-    const response = await axios.get(`${API_URL}/get-table`, {
-        headers: { Authorization: `Bearer ${token}` }
-    });
-    return response.data;
+    try {
+        const response = await axios.get(`${API_URL}/get-table`, {
+            headers: { Authorization: `Bearer ${token}` }
+        });
+        console.log("Table data response:", response.data); // Debugging
+        return response.data;
+    } catch (error: any) {
+        console.error("getTableData error:", error.response ? error.response.data : error.message); // Error handling
+        throw error;
+    }
 };
 
 const getInfo = async (token: string): Promise<InfoData> => {
-    const response = await axios.get(`${API_URL}/get-info`, {
-        headers: { Authorization: `Bearer ${token}` }
-    });
-    return response.data;
+    try {
+        const response = await axios.get(`${API_URL}/get-info`, {
+            headers: { Authorization: `Bearer ${token}` }
+        });
+        console.log("Info data response:", response.data); // Debugging
+        return response.data;
+    } catch (error: any) {
+        console.error("getInfo error:", error.response ? error.response.data : error.message); // Error handling
+        throw error;
+    }
 };
 
 export { login, getTableData, getInfo };

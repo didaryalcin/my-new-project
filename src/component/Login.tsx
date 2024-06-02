@@ -12,7 +12,9 @@ const Login: React.FC = () => {
         e.preventDefault();
         try {
             const data = await login(username, password);
+            console.log('Login response:', data); // Log response data
             localStorage.setItem('token', data.token);
+            console.log('Stored token:', data.token); // Log stored token
             navigate('/dashboard');
         } catch (error) {
             console.error('Login failed', error);
@@ -31,6 +33,5 @@ const Login: React.FC = () => {
 };
 
 export default Login;
-
 
 
