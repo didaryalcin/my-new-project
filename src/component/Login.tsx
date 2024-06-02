@@ -12,13 +12,8 @@ const Login: React.FC = () => {
         e.preventDefault();
         try {
             const data = await login(username, password);
-            console.log('Login response:', data); // Log response data
-            if (data && data.token) {
-                localStorage.setItem('token', data.token);
-                navigate('/dashboard');
-            } else {
-                console.error('Login response does not contain token');
-            }
+            localStorage.setItem('token', data.token);
+            navigate('/dashboard');
         } catch (error) {
             console.error('Login failed', error);
         }
@@ -36,5 +31,6 @@ const Login: React.FC = () => {
 };
 
 export default Login;
+
 
 

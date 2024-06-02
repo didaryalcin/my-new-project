@@ -28,37 +28,17 @@ const login = async (username: string, password: string): Promise<LoginResponse>
 };
 
 const getTableData = async (token: string): Promise<TableDataItem[]> => {
-    try {
-        const response = await axios.get(`${API_URL}/get-table`, {
-            headers: { Authorization: `Bearer ${token}` }
-        });
-        console.log("getTableData response:", response.data); // Debugging
-        return response.data;
-    } catch (error: any) {
-        if (axios.isAxiosError(error)) {
-            console.error("getTableData error:", error.response?.data || error.message);
-        } else {
-            console.error("Unexpected error:", error);
-        }
-        throw error;
-    }
+    const response = await axios.get(`${API_URL}/get-table`, {
+        headers: { Authorization: `Bearer ${token}` }
+    });
+    return response.data;
 };
 
 const getInfo = async (token: string): Promise<InfoData> => {
-    try {
-        const response = await axios.get(`${API_URL}/get-info`, {
-            headers: { Authorization: `Bearer ${token}` }
-        });
-        console.log("getInfo response:", response.data); // Debugging
-        return response.data;
-    } catch (error: any) {
-        if (axios.isAxiosError(error)) {
-            console.error("getInfo error:", error.response?.data || error.message);
-        } else {
-            console.error("Unexpected error:", error);
-        }
-        throw error;
-    }
+    const response = await axios.get(`${API_URL}/get-info`, {
+        headers: { Authorization: `Bearer ${token}` }
+    });
+    return response.data;
 };
 
 export { login, getTableData, getInfo };
