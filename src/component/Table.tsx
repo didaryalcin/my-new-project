@@ -15,7 +15,6 @@ interface TableProps {
 }
 
 const Table: React.FC<TableProps> = ({ data }) => {
-    // Dropdown state management
     const [dropdownOpen, setDropdownOpen] = useState<number | null>(null);
 
     const toggleDropdown = (index: number) => {

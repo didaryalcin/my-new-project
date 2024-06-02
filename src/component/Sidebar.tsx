@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import r5 from '../assets/r5.png'; // İkon resmini import edin
-import r6 from '../assets/r6.png'; // İkon resmini import edin
+import r5 from '../assets/r5.png';
+import r6 from '../assets/r6.png'; 
 import './Sidebar.css';
 
 const Sidebar: React.FC = () => {

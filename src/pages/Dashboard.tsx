@@ -74,10 +74,17 @@ const Dashboard: React.FC = () => {
                 {error && <div className="error">{error}</div>}
                 <InfoCards info={info} />
                 <Chart data={tableData} />
-                <Table data={tableData} />
+                <div className="transactions-history">
+                    <h2>Transactions History</h2>
+                    <Table data={tableData} />
+                </div>
             </div>
         </div>
     );
 };
 
 export default Dashboard;
+
+
+
+

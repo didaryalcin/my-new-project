@@ -1,5 +1,5 @@
 import React from 'react';
-import r2 from '../assets/r2.png'; // r2 görselini import edin
+import r2 from '../assets/r2.png'; 
 import './Chart.css';
 
 interface TableDataItem {

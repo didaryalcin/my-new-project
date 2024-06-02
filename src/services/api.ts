@@ -24,7 +24,7 @@ interface InfoData {
 
 const login = async (username: string, password: string): Promise<LoginResponse> => {
     const response = await axios.post(`${API_URL}/login`, { username, password });
-    console.log('API login response:', response.data); // API yanıtını loglayalım
+    console.log('API login response:', response.data); // API yanıtını log
     return response.data;
 };
 

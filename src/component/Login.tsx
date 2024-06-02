@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { login } from '../services/api';
-import './Login.css'; // Login formu için CSS dosyasını import edin
+import './Login.css'; 
 
 const Login: React.FC = () => {
     const [username, setUsername] = useState('');
@@ -12,9 +12,9 @@ const Login: React.FC = () => {
         e.preventDefault();
         try {
             const data = await login(username, password);
-            console.log('Login response:', data); // Log response data
+            console.log('Login response:', data); 
             localStorage.setItem('token', data.token);
-            console.log('Stored token:', data.token); // Log stored token
+            console.log('Stored token:', data.token); 
             navigate('/dashboard');
         } catch (error) {
             console.error('Login failed', error);
