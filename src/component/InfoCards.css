@@ -15,7 +15,7 @@
 }
 
 .info-card h2 {
-    font-family: 'HK Grotesk', sans-serif;
+    font-family: 'HK Grotesk', black;
     font-size: 14px;
     font-weight: 600;
     line-height: 20px;
@@ -25,8 +25,8 @@
 
 .info-card p {
     font-family: 'HK Grotesk', sans-serif;
-    font-size: 14px;
+    font-size: 52px;
     font-weight: 600;
-    line-height: 20px;
+    line-height: 36px;
     margin-top: 10px;
 }
