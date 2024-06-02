@@ -13,8 +13,8 @@ const Login: React.FC = () => {
         try {
             const data = await login(username, password);
             console.log('Login response:', data); 
-            localStorage.setItem('token', data.token);
-            console.log('Stored token:', data.token); 
+            localStorage.setItem('jwt', data.jwt);
+            console.log('Stored jwt:', data.jwt); 
             navigate('/dashboard');
         } catch (error) {
             console.error('Login failed', error);
@@ -33,4 +33,3 @@ const Login: React.FC = () => {
 };
 
 export default Login;
-

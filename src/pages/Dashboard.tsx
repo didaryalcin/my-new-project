@@ -32,18 +32,18 @@ const Dashboard: React.FC = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const token = localStorage.getItem('token');
-            console.log('Stored token:', token);
-            if (!token) {
+            const jwt = localStorage.getItem('jwt');
+            console.log('Stored jwt:', jwt);
+            if (!jwt) {
                 setError('No token found. Please login again.');
                 navigate('/login');
                 return;
             }
 
             try {
-                const tableData = await getTableData(token);
+                const tableData = await getTableData(jwt);
                 console.log("Fetched table data:", tableData);
-                const info = await getInfo(token);
+                const info = await getInfo(jwt);
                 console.log("Fetched info data:", info);
                 setTableData(tableData);
                 setInfo(info);
@@ -81,6 +81,7 @@ const Dashboard: React.FC = () => {
 };
 
 export default Dashboard;
+
 
 
 
