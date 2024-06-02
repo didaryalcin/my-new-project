@@ -10,7 +10,6 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    flex-wrap: wrap; /* Flex-wrap ekleyerek kutuların sığmayan yerlerde alt satıra geçmesini sağlıyoruz */
 }
 
 .info-card {
@@ -19,7 +18,6 @@
     border-radius: 8px;
     text-align: center;
     width: 22%;
-    margin-bottom: 20px; /* Altına boşluk ekliyoruz, alt satıra geçtiğinde kutuların birbirine çok yakın olmaması için */
 }
 
 .info-card h4 {
@@ -32,17 +30,4 @@
     margin: 5px 0 0 0;
     font-size: 14px;
     color: #666;
-}
-
-/* Medya sorguları ile mobil cihazlar için düzenlemeler */
-@media (max-width: 768px) {
-    .info-card {
-        width: 45%; /* Ekran boyutuna göre genişliği ayarlıyoruz */
-    }
-}
-
-@media (max-width: 480px) {
-    .info-card {
-        width: 100%; /* Küçük ekranlarda kutuların tamamını kaplamasını sağlıyoruz */
-    }
 }

@@ -3,11 +3,6 @@
     height: 100%;
     background-color: #f4f4f4;
     padding: 20px;
-    position: fixed; /* Sidebar'ı sabit yapalım */
-    top: 0;
-    left: 0;
-    overflow-y: auto; /* İçerik fazla olursa kaydırma çubuğu eklensin */
-    box-sizing: border-box; /* Padding ve border'ı toplam genişliğe dahil edelim */
 }
 
 .sidebar-logo {
@@ -18,7 +13,6 @@
 .sidebar ul {
     list-style-type: none;
     padding: 0;
-    margin: 0; /* Margin'i sıfırlayalım */
 }
 
 .sidebar ul li {
@@ -30,38 +24,8 @@
     color: #333;
     display: flex;
     align-items: center;
-    padding: 10px; /* Tıklama alanını genişletmek için padding ekleyelim */
-    border-radius: 4px; /* Daha modern bir görünüm için kenarları yuvarlayalım */
-    transition: background-color 0.3s; /* Hover animasyonu için geçiş ekleyelim */
-}
-
-.sidebar ul li a:hover {
-    background-color: #e0e0e0; /* Hover durumunda arka plan rengi değişsin */
 }
 
 .sidebar ul li a .icon-home {
     margin-right: 10px;
-}
-
-/* Responsive tasarım için medya sorgusu ekleyelim */
-@media (max-width: 768px) {
-    .sidebar {
-        width: 200px; /* Daha küçük ekranlar için genişliği azaltalım */
-    }
-
-    .sidebar ul li a {
-        padding: 8px; /* Padding'i küçültelim */
-    }
-}
-
-@media (max-width: 480px) {
-    .sidebar {
-        width: 100%; /* Çok küçük ekranlar için sidebar tam genişlikte olsun */
-        height: auto; /* Yüksekliği otomatik ayarlansın */
-        position: relative; /* Sabit konumlandırmayı kaldıralım */
-    }
-
-    .sidebar ul li {
-        margin: 10px 0; /* Margin'i küçültelim */
-    }
 }
