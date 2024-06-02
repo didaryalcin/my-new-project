@@ -4,7 +4,7 @@ import Header from '../component/Header';
 import Sidebar from '../component/Sidebar';
 import Table from '../component/Table';
 import Chart from '../component/Chart';
-import InfoCards from '../component/InfoCards'; // InfoCards componentini import edin
+import InfoCards from '../component/InfoCards';
 import { getTableData, getInfo } from '../services/api';
 import './Dashboard.css';
 
@@ -33,24 +33,24 @@ const Dashboard: React.FC = () => {
     useEffect(() => {
         const fetchData = async () => {
             const token = localStorage.getItem('token');
-            console.log('Stored token:', token); // Token'ı loglayalım
+            console.log('Stored token:', token);
             if (!token) {
                 setError('No token found. Please login again.');
-                navigate('/login'); // Kullanıcıyı login sayfasına yönlendirin
+                navigate('/login');
                 return;
             }
 
             try {
                 const tableData = await getTableData(token);
-                console.log("Fetched table data:", tableData); // Fetch edilen tablo verilerini loglayalım
+                console.log("Fetched table data:", tableData);
                 const info = await getInfo(token);
-                console.log("Fetched info data:", info); // Fetch edilen info verilerini loglayalım
+                console.log("Fetched info data:", info);
                 setTableData(tableData);
                 setInfo(info);
             } catch (error: any) {
                 const errorMessage = error.response ? error.response.data.message : error.message;
                 setError(`Failed to fetch data. ${errorMessage}`);
-                console.error("API call error:", error); // Debugging
+                console.error("API call error:", error);
             }
         };
         fetchData();
@@ -60,12 +60,19 @@ const Dashboard: React.FC = () => {
         <div className="dashboard">
             <Sidebar />
             <div className="dashboard-content">
+                <div className="special-offer">
+                    Special Offer! Get Complete Free Proxy 10 MB Proxy, without credit card. Start Free Trial
+                </div>
                 <div className="dashboard-header">
                     <h1>Proxies & Scraping Infrastructure</h1>
                 </div>
+                <div className="nav-tabs">
+                    <button className="active">My Proxies</button>
+                    <button>Dashboard</button>
+                </div>
                 <Header info={info} />
                 {error && <div className="error">{error}</div>}
-                <InfoCards info={info} /> {/* InfoCards componentini burada kullanın */}
+                <InfoCards info={info} />
                 <Chart data={tableData} />
                 <Table data={tableData} />
             </div>
@@ -74,5 +81,3 @@ const Dashboard: React.FC = () => {
 };
 
 export default Dashboard;
-
-

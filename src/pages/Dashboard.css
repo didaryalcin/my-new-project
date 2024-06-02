@@ -9,9 +9,35 @@
     background-color: #f4f4f4;
 }
 
+.special-offer {
+    background-color: #78B6FF4D;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
 .dashboard-header {
     text-align: center;
     margin-bottom: 20px;
+}
+
+.nav-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.nav-tabs button {
+    padding: 10px 20px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.nav-tabs .active {
+    border-bottom: 2px solid #000;
 }
 
 .info-cards {
@@ -21,7 +47,7 @@
 }
 
 .info-card {
-    background: white;
+    background: #78B6FF4D;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);

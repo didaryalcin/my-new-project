@@ -2,25 +2,29 @@
     display: flex;
     justify-content: space-around;
     margin-bottom: 20px;
+    flex-wrap: wrap; /* Elemanların sarılmasını sağlamak için ekliyoruz */
 }
 
 .info-card {
-    background: white;
+    background: #78B6FF4D;
     padding: 20px;
+    margin: 10px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 22%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex: 1 1 calc(25% - 40px); /* Flex-grow, flex-shrink ve flex-basis ayarları */
     text-align: center;
+    box-sizing: border-box; /* Padding ve border'ı genişliğe dahil ediyoruz */
 }
 
-.info-card h3 {
-    margin: 0;
-    font-size: 16px;
-    color: #333;
+/* Daha küçük ekranlar için düzenleme */
+@media (max-width: 768px) {
+    .info-card {
+        flex: 1 1 calc(50% - 40px); /* Ekran genişliği 768px'in altına düştüğünde her satırda iki kart olacak */
+    }
 }
 
-.info-card p {
-    margin: 5px 0 0 0;
-    font-size: 14px;
-    color: #666;
+@media (max-width: 480px) {
+    .info-card {
+        flex: 1 1 calc(100% - 40px); /* Ekran genişliği 480px'in altına düştüğünde her satırda bir kart olacak */
+    }
 }

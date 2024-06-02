@@ -3,9 +3,12 @@
     justify-content: center;
     align-items: center;
     padding: 20px;
+    width: 100%; /* Genişliği yüzde olarak ayarlıyoruz */
+    box-sizing: border-box; /* Padding ve border'ı genişliğe dahil ediyoruz */
 }
 
 .chart-image {
     max-width: 100%;
     height: auto;
+    width: 100%; /* Görselin genişliğini yüzde olarak ayarlıyoruz */
 }
