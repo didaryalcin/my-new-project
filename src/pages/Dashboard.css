@@ -12,8 +12,11 @@
 .special-offer {
     background-color: #78B6FF4D;
     padding: 10px;
-    text-align: center;
+    font-family: 'HK Grotesk', sans-serif;
     font-size: 14px;
+    font-weight: 500;
+    line-height: 16.8px;
+    text-align: left;
     margin-bottom: 10px;
 }
 
@@ -39,6 +42,9 @@
     background: none;
     cursor: pointer;
     font-size: 16px;
+    width: 227px;
+    height: 41px;
+    opacity: 1;
 }
 
 .nav-tabs .active {
