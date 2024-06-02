@@ -11,13 +11,13 @@ const Sidebar: React.FC = () => {
                 <li>
                     <Link to="/dashboard">
                         <img src={r5} alt="Dashboard Icon" className="icon-home" />
-                        <span>Dashboard</span>
+    
                     </Link>
                 </li>
                 <li>
                     <Link to="/somepage">
                         <img src={r6} alt="Some Page Icon" className="icon-somepage" />
-                        <span>Some Page</span>
+                
                     </Link>
                 </li>
             </ul>
