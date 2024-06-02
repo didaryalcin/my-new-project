@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-
 const API_URL = 'https://recruitment-api.vercel.app';
 
 interface LoginResponse {
@@ -36,8 +35,12 @@ const getTableData = async (jwt: string): Promise<TableDataItem[]> => {
         });
         console.log("Table data response:", response.data); // Debugging
         return response.data;
-    } catch (error: any) {
-        console.error("getTableData error:", error.response ? error.response.data : error.message); // Error handling
+    } catch (error) {
+        if (axios.isAxiosError(error)) {
+            console.error("getTableData error:", error.response ? error.response.data : error.message); // Error handling
+        } else {
+            console.error("Unexpected error:", error);
+        }
         throw error;
     }
 };
@@ -49,8 +52,12 @@ const getInfo = async (jwt: string): Promise<InfoData> => {
         });
         console.log("Info data response:", response.data); // Debugging
         return response.data;
-    } catch (error: any) {
-        console.error("getInfo error:", error.response ? error.response.data : error.message); // Error handling
+    } catch (error) {
+        if (axios.isAxiosError(error)) {
+            console.error("getInfo error:", error.response ? error.response.data : error.message); // Error handling
+        } else {
+            console.error("Unexpected error:", error);
+        }
         throw error;
     }
 };

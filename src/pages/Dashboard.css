@@ -32,7 +32,7 @@
 
 .nav-tabs {
     display: flex;
-    justify-content: flex-start; /* Sol hizalama */
+    justify-content: flex-start; 
     margin-bottom: 20px;
 }
 
@@ -45,16 +45,16 @@
     width: 227px;
     height: 41px;
     opacity: 1;
-    text-align: left; /* Sol hizalama */
+    text-align: left; 
 }
 
 .nav-tabs button:hover {
-    color: #0C6DFC; /* Hover durumunda mavi renk */
+    color: #0C6DFC; 
 }
 
 .nav-tabs .active {
-    border-bottom: 2px solid #0C6DFC; /* Çizginin rengini değiştir */
-    color: #0C6DFC; /* Aktif olan sekmenin rengini değiştir */
+    border-bottom: 2px solid #0C6DFC; 
+    color: #0C6DFC; 
 }
 
 .info-cards {
@@ -101,7 +101,7 @@
     font-size: 20.11px;
     line-height: 24.14px;
     color: #333;
-    padding-left: 20px; /* or however much padding is needed to align with the table */
+    padding-left: 20px; 
 }
 
 .transactions-history table {
