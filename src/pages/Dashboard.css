@@ -32,7 +32,7 @@
 
 .nav-tabs {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start; /* Sol hizalama */
     margin-bottom: 20px;
 }
 
@@ -45,10 +45,12 @@
     width: 227px;
     height: 41px;
     opacity: 1;
+    text-align: left; /* Sol hizalama */
 }
 
 .nav-tabs .active {
-    border-bottom: 2px solid #000;
+    border-bottom: 2px solid #0C6DFC; /* Çizginin rengini değiştir */
+    color: #0C6DFC; /* Aktif olan sekmenin rengini değiştir */
 }
 
 .info-cards {
@@ -63,7 +65,24 @@
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 22%;
-    text-align: center;
+    text-align: left;
+}
+
+.info-card h2 {
+    font-family: 'HK Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    color: black;
+    margin: 0;
+}
+
+.info-card p {
+    font-family: 'HK Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    margin-top: 10px;
 }
 
 .transactions-history {

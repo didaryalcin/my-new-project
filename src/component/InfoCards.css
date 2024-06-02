@@ -7,9 +7,26 @@
 .info-card {
     background: #78B6FF4D;
     padding: 20px;
-    margin: 10px;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    flex: 1;
-    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 22%;
+    text-align: left;
+    position: relative;
+}
+
+.info-card h2 {
+    font-family: 'HK Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    color: black;
+    margin: 0;
+}
+
+.info-card p {
+    font-family: 'HK Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    margin-top: 10px;
 }
